@@ -33,29 +33,33 @@ export default function HugPage() {
       </header>
 
       {/* 🔮 Central Interactive Heart */}
-      <div className="relative flex flex-col items-center justify-center space-y-16 animate-fade-in-up">
+      <div className="relative flex flex-col items-center justify-center space-y-12 md:space-y-16 animate-fade-in-up">
         
         <div className="text-center space-y-4 max-w-2xl px-6">
-           <h2 className="text-6xl md:text-8xl font-black text-gray-800 dark:text-white tracking-tighter leading-none">
+           <h2 className="text-4xl md:text-8xl font-black text-gray-800 dark:text-white tracking-tighter leading-[1.1]">
              Sometimes, a hug is all <br />
-             <span className="text-primary italic">you need. ❤️</span>
+             <span className="text-primary italic font-serif">you need. ❤️</span>
            </h2>
-           <p className="text-xl md:text-2xl font-bold text-gray-400 italic">
-             Tap the heart to send a warm virtual hug to everyone in the vault.
+           <p className="text-lg md:text-2xl font-bold text-gray-400 italic">
+             Tap the heart to send a warm virtual hug.
            </p>
         </div>
 
         {/* The Action Button */}
-        <button 
-          onClick={sendHug}
-          className={`
-            relative group flex items-center justify-center h-80 w-80 md:h-[400px] md:w-[400px] rounded-full transition-all duration-700
-            ${isHugging ? 'scale-110' : 'hover:scale-105'}
-            bg-gradient-to-tr from-primary/10 via-transparent to-primary/5
-          `}
-        >
-           {/* Pulsing Aura */}
-           <div className={`absolute inset-0 rounded-full bg-primary/20 blur-[100px] animate-pulse ${isHugging ? 'opacity-100 scale-125' : 'opacity-40'} transition-all duration-700`} />
+        <div className="relative flex items-center justify-center">
+            {/* 💎 Outer Glass Ring decor */}
+            <div className={`absolute inset-[-20px] rounded-full border-2 border-white/10 glass transition-all duration-1000 ${isHugging ? 'scale-110 opacity-100' : 'scale-95 opacity-40'}`} />
+            
+            <button 
+              onClick={sendHug}
+              className={`
+                relative group flex items-center justify-center h-64 w-64 md:h-[400px] md:w-[400px] rounded-full transition-all duration-700
+                ${isHugging ? 'scale-110 shadow-[0_0_100px_rgba(255,148,120,0.4)]' : 'hover:scale-105 shadow-2xl'}
+                bg-gradient-to-tr from-primary/10 via-white/5 to-primary/5 glass border-white/20
+              `}
+            >
+               {/* Pulsing Aura */}
+               <div className={`absolute inset-0 rounded-full bg-primary/20 blur-[80px] animate-pulse ${isHugging ? 'opacity-100 scale-125' : 'opacity-20'} transition-all duration-700`} />
            
            {/* Center Icon */}
            <div className={`

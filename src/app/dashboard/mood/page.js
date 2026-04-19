@@ -41,22 +41,27 @@ export default function MoodPage() {
            </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-10 w-full px-4">
            {moods.map((mood) => (
              <button
                key={mood.id}
                onClick={() => setSelectedMood(mood.id)}
                className={`
-                 relative flex flex-col items-center justify-center p-12 rounded-[4rem] transition-all duration-500 transform
+                 relative flex flex-col items-center justify-center p-8 md:p-12 rounded-[2.5rem] transition-all duration-500 transform overflow-hidden
                  ${selectedMood === mood.id 
-                    ? 'ring-8 ring-white scale-110 shadow-2xl z-20 ' + mood.color
-                    : 'glass opacity-60 hover:opacity-100 hover:scale-105'}
+                    ? 'ring-4 ring-primary scale-105 shadow-2xl z-20 ' + mood.color
+                    : 'glass border-white/10 opacity-60 hover:opacity-100 hover:scale-[1.03]'}
                `}
              >
-                <span className={`text-8xl mb-6 transition-transform duration-700 ${selectedMood === mood.id ? 'animate-bounce' : ''}`}>
+                {/* Selected Shimmer */}
+                {selectedMood === mood.id && (
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/40 to-transparent animate-pulse" />
+                )}
+
+                <span className={`text-6xl md:text-8xl mb-6 transition-transform duration-700 ${selectedMood === mood.id ? 'animate-bounce' : ''}`}>
                   {mood.icon}
                 </span>
-                <span className="text-2xl font-black tracking-tight">{mood.label}</span>
+                <span className="text-xl md:text-2xl font-black tracking-tighter">{mood.label}</span>
                 
                 {selectedMood === mood.id && (
                   <div className="absolute -top-4 -right-4 bg-primary text-white h-12 w-12 rounded-full flex items-center justify-center shadow-xl animate-scale-in">

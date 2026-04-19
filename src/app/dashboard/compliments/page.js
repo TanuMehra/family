@@ -34,24 +34,27 @@ export default function ComplimentsPage() {
         </div>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {compliments.map((comp, idx) => (
           <div 
             key={comp.id} 
             className={`
-              rounded-[4rem] glass p-12 shadow-2xl border border-white/20 dark:border-white/5 space-y-8 
-              hover:scale-[1.03] hover:shadow-primary/20 transition-all duration-500 group
+              relative rounded-[3rem] glass p-10 md:p-14 shadow-2xl border border-white/20 dark:border-white/5 space-y-8 
+              hover:scale-[1.03] hover:shadow-primary/20 transition-all duration-500 group overflow-hidden
               animate-fade-in-up
             `}
             style={{ animationDelay: `${idx * 0.15}s` }}
           >
-            <div className="text-6xl group-hover:scale-125 transition-transform duration-700 select-none">💌</div>
-            <p className="text-3xl font-black text-gray-700 dark:text-gray-100 leading-[1.15] tracking-tight">
+            {/* Subtle Gradient Accent */}
+            <div className="absolute top-0 right-0 h-32 w-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-primary/10 transition-colors" />
+
+            <div className="text-6xl group-hover:rotate-12 group-hover:scale-125 transition-transform duration-700 select-none">💌</div>
+            <p className="text-3xl font-black text-gray-700 dark:text-gray-100 leading-[1.1] tracking-tighter">
               "{comp.text}"
             </p>
             <div className="pt-8 flex items-center gap-4">
               <div className="h-px bg-primary/20 flex-1" />
-              <span className="text-sm font-black uppercase tracking-[0.4em] text-primary whitespace-nowrap">
+              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary whitespace-nowrap">
                 — {comp.from}
               </span>
             </div>

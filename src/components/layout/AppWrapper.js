@@ -49,13 +49,14 @@ export default function AppWrapper({ children }) {
 
 
       
-      {/* Dark Mode Toggle Button - Fixed Position */}
+      {/* 🌓 Premium Dark Mode Toggle */}
       <button
         onClick={toggleDarkMode}
-        className="fixed top-8 left-8 z-[110] flex h-12 w-12 items-center justify-center rounded-full glass shadow-xl transition-all hover:scale-110 active:scale-90"
+        className="fixed top-8 left-8 z-[110] flex h-14 w-14 items-center justify-center rounded-2xl glass border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 hover:scale-110 active:scale-95 group overflow-hidden"
         aria-label="Toggle Dark Mode"
       >
-        <span className="text-xl">
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <span className="text-2xl transform transition-transform duration-700 group-hover:rotate-[360deg]">
           {isDarkMode ? "☀️" : "🌙"}
         </span>
       </button>
